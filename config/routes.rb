@@ -1,4 +1,10 @@
 SpeedTrapp::Application.routes.draw do
+  
+  root 'users#new'
+
+  get'/users/new', to: 'users#new', as: 'users_new'
+  post '/users', to: 'users#create', as: 'users'
+  get '/users/:id', to: 'users#show', as: 'user'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
