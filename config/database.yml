@@ -15,5 +15,6 @@ test:
 production:
   adapter: postgresql
   database: speed_trap_prod
+  host:localhost
   pool: 5
   timeout: 5000
