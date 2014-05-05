@@ -1,11 +1,16 @@
 SpeedTrapp::Application.routes.draw do
-  
+  resources :sessions
   root 'users#new'
 
   get'/users/new', to: 'users#new', as: 'users_new'
   post '/users', to: 'users#create', as: 'users'
   get '/users/:id', to: 'users#show', as: 'user'
+  
   get'/traps/new', to: 'traps#new', as: 'trap'
+
+  delete '/signout', to: 'sessions#destroy'
+  get '/signin', to: 'sessions#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
