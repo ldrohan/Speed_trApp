@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	def create
 	  user = User.new(user_params)
 		if user.save
-			flash[:success] = "You have successfully created an Account."
+		  flash[:success] = "You have successfully created an Account."
 		  redirect_to user
 		else
 		  flash[:error] = "The new user cannot be saved. Please try again."

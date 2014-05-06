@@ -1,8 +1,7 @@
 Shows all relevant traps<br>
-Your latitude is <%= @all_traps[0]["lat"] %><br>
-Yout longitude is <%= @all_traps[0]["long"] %>
 
-<!-- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html>
   <head>
     <title>Geolocation</title>
@@ -38,15 +37,27 @@ function initialize() {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);    
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
+      var current = 'http://img.lib.msu.edu/mobile/user_icon_g.png';
       // Pseudo-code for iterating through Trap Table, showing all markers...
       // for (i=0, i <= Traps.length, i++) {
+        var saved = new google.maps.LatLng(gon.traps[0]["lat"],gon.traps[0]["long"]); 
+
         var marker = new google.maps.Marker({
-          position: (),
-          draggable:true,
+          position: saved,
+          draggable:false,
           animation: google.maps.Animation.DROP,
           icon: image,
           map: map,
           title:"TrApp!"
+        });
+
+        var marker = new google.maps.Marker({
+          position: pos,
+          draggable:false,
+          animation: google.maps.Animation.DROP,
+          icon: current,
+          map: map,
+          title:"Current Location"
         });
 
       map.setCenter(pos);
@@ -85,4 +96,4 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <body>
     <div id="map-canvas"></div>
   </body>
-</html> -->
+</html>
