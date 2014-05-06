@@ -40,16 +40,18 @@ function initialize() {
       var current = 'http://img.lib.msu.edu/mobile/user_icon_g.png';
       // Pseudo-code for iterating through Trap Table, showing all markers...
       // for (i=0, i <= Traps.length, i++) {
-        var saved = new google.maps.LatLng(gon.traps[0]["lat"],gon.traps[0]["long"]); 
-
+        // var saved = new google.maps.LatLng(gon.traps[0]["lat"],gon.traps[0]["long"]); 
+        
+        for (i = 0; i < gon.traps.length; i++) {
         var marker = new google.maps.Marker({
-          position: saved,
+          position: new google.maps.LatLng(gon.traps[i]["lat"],gon.traps[i]["long"]),
           draggable:false,
           animation: google.maps.Animation.DROP,
           icon: image,
           map: map,
           title:"TrApp!"
-        });
+        });  
+      };
 
         var marker = new google.maps.Marker({
           position: pos,
