@@ -1,1 +1,88 @@
-Shows all relevant traps
+Shows all relevant traps<br>
+Your latitude is <%= @all_traps[0]["lat"] %><br>
+Yout longitude is <%= @all_traps[0]["long"] %>
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 90%;
+        width: 80%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+
+    <script>
+
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 14,
+    streetViewControl: false
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  //HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);    
+      var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
+      // Pseudo-code for iterating through Trap Table, showing all markers...
+      // for (i=0, i <= Traps.length, i++) {
+        var marker = new google.maps.Marker({
+          position: (),
+          draggable:true,
+          animation: google.maps.Animation.DROP,
+          icon: image,
+          map: map,
+          title:"TrApp!"
+        });
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html> -->

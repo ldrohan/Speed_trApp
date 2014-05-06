@@ -17,6 +17,7 @@ class TrapsController < ApplicationController
 	end
 
 	def show
-
+		@all_traps = Trap.all
+		#binding.pry
 	end	
 end
