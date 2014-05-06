@@ -1,4 +1,4 @@
-New Trap
+<button class="submitter">Create New Trap</button>
 
 <!DOCTYPE html>
 <html>
@@ -30,17 +30,20 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
 
-  // Try HTML5 geolocation
+  //HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
+    $('.submitter').click(function() {  
+      $.ajax ({
+        type: "POST",
+        url:"/traps",
+        data: { lat: position.coords.latitude, long: position.coords.longitude }
+        });
+    });
 
-      // var infowindow = new google.maps.InfoWindow({
-      //   map: map,
-      //   position: pos,
-      //   content: 'You are Here.'
-      // });
+      
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
       var marker = new google.maps.Marker({
         position: pos,
