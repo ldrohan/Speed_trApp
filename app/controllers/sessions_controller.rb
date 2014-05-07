@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-  	
+  	#Links signin page to Controller
   end
 
   def create

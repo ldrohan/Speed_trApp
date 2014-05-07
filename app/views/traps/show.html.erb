@@ -1,6 +1,7 @@
 Shows all relevant traps<br>
 
 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,7 +26,7 @@ var map;
 
 function initialize() {
   var mapOptions = {
-    zoom: 14,
+    zoom: 13,
     streetViewControl: false
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
@@ -38,10 +39,8 @@ function initialize() {
                                        position.coords.longitude);    
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
       var current = 'http://img.lib.msu.edu/mobile/user_icon_g.png';
-      // Pseudo-code for iterating through Trap Table, showing all markers...
-      // for (i=0, i <= Traps.length, i++) {
-        // var saved = new google.maps.LatLng(gon.traps[0]["lat"],gon.traps[0]["long"]); 
-        
+      
+        //iterates through table, showing multiple markers
         for (i = 0; i < gon.traps.length; i++) {
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(gon.traps[i]["lat"],gon.traps[i]["long"]),
@@ -52,7 +51,7 @@ function initialize() {
           title:"TrApp!"
         });  
       };
-
+        //shows current position relative to other Traps.
         var marker = new google.maps.Marker({
           position: pos,
           draggable:false,

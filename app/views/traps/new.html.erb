@@ -16,7 +16,7 @@
     </style>
     
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-
+    <script src="https://api.sendhub.com/v1/messages/?username=NUMBER&api_key=APIKEY"></script>
     <script>
 
 
@@ -35,12 +35,15 @@ function initialize() {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
+    // Click button to save geolocation to Trap Model
     $('.submitter').click(function() {  
       $.ajax ({
         type: "POST",
         url:"/traps",
         data: { lat: position.coords.latitude, long: position.coords.longitude }
         });
+
+
     });
 
       

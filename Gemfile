@@ -7,7 +7,7 @@ gem 'rails', '4.0.4'
 gem 'pg'
 
 gem 'gon'
-
+gem 'twilio'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
 
