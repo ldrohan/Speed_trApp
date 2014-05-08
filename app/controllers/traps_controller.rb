@@ -28,9 +28,11 @@ class TrapsController < ApplicationController
       traffic_data = JSON.parse(results.body)
       resources = traffic_data["resourceSets"][0]["resources"]
 
-      gon.coords = []	
+      gon.coords = []
+      gon.description = []	
       resources.each do |t|
       	gon.coords.push (t["point"]["coordinates"])
+      	gon.description.push (t["description"])
       end	 
 	  send_text_message
 	  #binding.pry
