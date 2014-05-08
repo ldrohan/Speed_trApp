@@ -8,10 +8,12 @@ class TrapsController < ApplicationController
 	end	
       
 	def create
-	  @trap = Trap.new(name: "Luke", lat: params["lat"].to_f, long: params["long"].to_f)
-      #@trap.save
+	  @trap = Trap.new(lat: params["lat"].to_f, long: params["long"].to_f)
+	  @trap.user_id = @current_user.id
+      @trap.save
+      #binding.pry
       send_text_message
-      redirect_to "/traps/show", :alert => "Saved!"
+      
       #binding.pry
         # respond_to do |format|
         #   if @trap.save

@@ -1,0 +1,16 @@
+<div class="navbar-header navbar-right">
+    <% if signed_in? %>
+      <p class="navbar-text">
+        <%= link_to "My profile", current_user %>
+      </p>
+      <p class="navbar-text">
+        <%= link_to "Sign out", signout_path, method: "delete" %>
+      </p>
+    <% else %>
+      <p class="navbar-text">
+        <%= link_to "Sign up", root_path %>
+      </p>
+      <p class="navbar-text">
+        <%= link_to "Sign in", signin_path %>
+      </p>
+    <% end %>
