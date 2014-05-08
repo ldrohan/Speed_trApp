@@ -17,17 +17,47 @@ class TrapsController < ApplicationController
         #   	format.js { }
         #   else
         #     redirect_to '/traps/new'
-        #   end  		
+        #   end  
+        redirect_to '/traps/show'		
 	end
 
 	def show
-		gon.traps = Trap.all
-		#binding.pry
-	end	
+	  gon.traps = Trap.all
+	  #Traffic Data API Request
+	  results = Typhoeus.get("http://dev.virtualearth.net/REST/v1/Traffic/Incidents/25,-122.325,47.610,-122.107?key=AgibBbdCMDidBLcSduQjcepb68zIEOYu-w3NQr-5gAa1ixpTrX-foJjmnoHwi5qL")
+      traffic_data = JSON.parse(results.body)
+      resources = traffic_data["resourceSets"][0]["resources"]
 
+      gon.coords = []	
+      resources.each do |t|
+      	gon.coords.push (t["point"]["coordinates"])
+      end	 
+	  send_text_message
+	  #binding.pry
+	end	
+	
+	def send_text_message
+      number_to_send_to = +18457971090#params[:number_to_send_to]
+ 
+      twilio_sid = "ACf355215e0f5adb3e6cd36a17ab01b45d"
+      twilio_token = "d5c8347d7e25a1917d0423b30c940791"
+      twilio_phone_number = +18456350218
+ 
+      @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
+ 
+      @twilio_client.account.sms.messages.create(
+        :from => "+1#{8456350218}",
+        :to => "+1#{8457971090}",
+        :body => "Your Trap has been set!"
+        )  
+    end
+    
+	
 	def destroy
 		trap = Trap.find(params[:id])
 		trap.delete
 		redirect_to users_path
 	end	
+
+
 end

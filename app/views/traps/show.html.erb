@@ -40,6 +40,7 @@ function initialize() {
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
       var current = 'http://img.lib.msu.edu/mobile/user_icon_g.png';
       
+      var trafficIcon = 'http://www.mricons.com/store/png/115142_32453_24_danger_icon.png';
         //iterates through table, showing multiple markers
         for (i = 0; i < gon.traps.length; i++) {
         var marker = new google.maps.Marker({
@@ -49,6 +50,17 @@ function initialize() {
           icon: image,
           map: map,
           title:"TrApp!"
+        });  
+      };
+
+      for (i = 0; i < gon.coords.length; i++) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(gon.coords[i][0],gon.coords[i][1]),
+          draggable:false,
+          animation: google.maps.Animation.DROP,
+          icon: trafficIcon,
+          map: map,
+          title:"Traffic Incident"
         });  
       };
         //shows current position relative to other Traps.
