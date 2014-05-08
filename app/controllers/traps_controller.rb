@@ -1,7 +1,7 @@
 class TrapsController < ApplicationController
 	include TrapsHelper
-	before_filter :signed_in_user, only: [:create, :new, :edit, :update, :destroy]
-	before_filter :check_trap_owner, only: [:edit, :update, :destroy]
+	before_filter :signed_in_user, only: [:create, :new, :edit, :destroy]
+	before_filter :check_trap_owner, only: [:edit, :destroy]
 
 	def new
       @trap = Trap.new
@@ -9,7 +9,9 @@ class TrapsController < ApplicationController
       
 	def create
 	  @trap = Trap.new(name: "Luke", lat: params["lat"].to_f, long: params["long"].to_f)
-      @trap.save
+      #@trap.save
+      send_text_message
+      redirect_to "/traps/show", :alert => "Saved!"
       #binding.pry
         # respond_to do |format|
         #   if @trap.save
@@ -18,7 +20,7 @@ class TrapsController < ApplicationController
         #   else
         #     redirect_to '/traps/new'
         #   end  
-        redirect_to '/traps/show'		
+        # redirect_to '/traps/show'		
 	end
 
 	def show
@@ -34,7 +36,7 @@ class TrapsController < ApplicationController
       	gon.coords.push (t["point"]["coordinates"])
       	gon.description.push (t["description"])
       end	 
-	  send_text_message
+	  
 	  #binding.pry
 	end	
 	

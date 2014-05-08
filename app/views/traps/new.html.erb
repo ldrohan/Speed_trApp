@@ -1,5 +1,5 @@
 <button class="submitter">Create New Trap</button>
-
+ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +16,7 @@
     </style>
     
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-    <script src="https://api.sendhub.com/v1/messages/?username=NUMBER&api_key=APIKEY"></script>
+    
     <script>
 
 
@@ -41,12 +41,11 @@ function initialize() {
         type: "POST",
         url:"/traps",
         data: { lat: position.coords.latitude, long: position.coords.longitude }
-        });
-
-
+      });
+      window.location.replace("/traps/show");
     });
 
-      
+      //Drops Speed Trap Marker at current location
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
       var marker = new google.maps.Marker({
         position: pos,

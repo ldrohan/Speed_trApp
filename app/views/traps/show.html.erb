@@ -1,4 +1,5 @@
 Shows all relevant traps<br>
+<%= link_to "Create Another TrApp", '/traps/new' %> <br>
 
 
 
@@ -39,8 +40,8 @@ function initialize() {
                                        position.coords.longitude);    
       var image = 'http://www.wiltonbulletin.com/wp-content/uploads/leaflet-maps-marker-icons/police2.png';
       var current = 'http://img.lib.msu.edu/mobile/user_icon_g.png';
-      
       var trafficIcon = 'http://www.mricons.com/store/png/115142_32453_24_danger_icon.png';
+        
         //iterates through table, showing multiple markers
         for (i = 0; i < gon.traps.length; i++) {
         var marker = new google.maps.Marker({
@@ -52,7 +53,7 @@ function initialize() {
           title:"TrApp!"
         });  
       };
-
+      //Shows Current Traffic Accidents Using Bingmaps API
       for (i = 0; i < gon.coords.length; i++) {
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(gon.coords[i][0],gon.coords[i][1]),
@@ -63,14 +64,15 @@ function initialize() {
           title:gon.description[i]
         });  
       };
-        //shows current position relative to other Traps.
-        var marker = new google.maps.Marker({
-          position: pos,
-          draggable:false,
-          animation: google.maps.Animation.DROP,
-          icon: current,
-          map: map,
-          title:"Current Location"
+      
+      //shows current position relative to other Traps.
+      var marker = new google.maps.Marker({
+        position: pos,
+        draggable:false,
+        animation: google.maps.Animation.DROP,
+        icon: current,
+        map: map,
+        title:"Current Location"
         });
 
       map.setCenter(pos);
