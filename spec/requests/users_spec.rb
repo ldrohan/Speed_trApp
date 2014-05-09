@@ -3,29 +3,25 @@ describe "Users response" do
 	
   describe "root path" do
   	it "should pass" do
-  		get "/" 
-  		response.status.should be(200)
+  	get "/" 
+  	response.status.should be(200)
   	end
   end	
 
   describe "new users" do
   	it "should Pass" do
-  	  get "/users/new"
-  	  response.status.should be(200)
+  	 get "/users/new"
+  	 response.status.should be(200)
   	end
   end	
 
   describe "creating user" do
     it "should Pass" do
-  	  post "/users"
-  	  response.status.should be(302)
+  	post "/users"
+  	response.status.should be(302)
   	end
   end	
-  
-  # describe "Showing Users" do 
-  # 	it "should pass"
-  # 	  get "/users/"
-  
+
 end  
 
 

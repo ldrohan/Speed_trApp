@@ -11,7 +11,6 @@ class TrapsController < ApplicationController
 	  @trap = Trap.new(lat: params["lat"].to_f, long: params["long"].to_f)
 	  @trap.user_id = @current_user.id
       @trap.save
-      #binding.pry
       send_text_message
       
       #binding.pry
@@ -38,8 +37,6 @@ class TrapsController < ApplicationController
       	gon.coords.push (t["point"]["coordinates"])
       	gon.description.push (t["description"])
       end	 
-	  
-	  #binding.pry
 	end	
 	
 	def send_text_message
@@ -56,9 +53,8 @@ class TrapsController < ApplicationController
         :to => "+1#{8457971090}",
         :body => "Your Trap has been set. Watch out for the Po-Po!"
         )  
-    end
+  end
     
-	
 	def destroy
 		trap = Trap.find(params[:id])
 		trap.delete

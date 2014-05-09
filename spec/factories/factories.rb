@@ -15,5 +15,7 @@ FactoryGirl.define do
   	name nil
   	lat 3.1233456
   	long 120.755235
+    user_id 1
   end	
+
 end
