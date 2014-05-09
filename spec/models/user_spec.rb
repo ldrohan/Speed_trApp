@@ -11,15 +11,16 @@ describe User do
   	it 'should be formatted correctly' do
   		user2 = FactoryGirl.build(:user, email: "fake_email")
   		user2.should_not be_valid
-  	end	
-  end
-  	describe 'uniqueness' do
-   	it 'should be unique' do
+  	end
 
-   	user_1 = FactoryGirl.create(:user)
-    user_2 = FactoryGirl.build(:user, email: user_1.email)
-    user_2.should_not be_valid
   end
- end	
+  	
+  describe 'uniqueness' do
+   	it 'should be unique' do
+      user_1 = FactoryGirl.create(:user)
+      user_2 = FactoryGirl.build(:user, email: user_1.email)
+      user_2.should_not be_valid
+      end
+    end	
 
 end
