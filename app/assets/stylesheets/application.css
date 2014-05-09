@@ -13,3 +13,34 @@
  */
 
 
+#sign_in_page {
+	color: #52B3D9;
+	text-align: center;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sign_up_page {
+	color: #2C3E50;
+	text-align: center;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#profilepage {
+    color: #52B3D9;
+	text-align: center;
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#profheader {
+	color: black;
+}
+
+body {
+	background-color: #ABB7B7;
+}

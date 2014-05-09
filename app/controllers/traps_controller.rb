@@ -54,7 +54,7 @@ class TrapsController < ApplicationController
       @twilio_client.account.sms.messages.create(
         :from => "+1#{8456350218}",
         :to => "+1#{8457971090}",
-        :body => "Your Trap has been set!"
+        :body => "Your Trap has been set. Watch out for the Po-Po!"
         )  
     end
     
