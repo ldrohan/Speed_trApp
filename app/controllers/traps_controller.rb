@@ -45,8 +45,8 @@ class TrapsController < ApplicationController
 	def send_text_message
       number_to_send_to = +18457971090#params[:number_to_send_to]
  
-      twilio_sid = "ACf355215e0f5adb3e6cd36a17ab01b45d"
-      twilio_token = "d5c8347d7e25a1917d0423b30c940791"
+      twilio_sid = ENV["TWILIO_SID"]
+      twilio_token = ENV["TWILIO_TOKEN"]
       twilio_phone_number = +18456350218
  
       @twilio_client = Twilio::REST::Client.new twilio_sid, twilio_token
