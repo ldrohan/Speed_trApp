@@ -1,5 +1,10 @@
 require 'spec_helper'
-describe "Users response" do  
+describe "Users response" do
+
+  #I added this to create data for the creating users spec
+  before :each do
+    @user_attributes = FactoryGirl.attributes_for(:user)
+  end
 	
   describe "root path" do
   	it "should pass" do
@@ -9,6 +14,9 @@ describe "Users response" do
   end	
 
   describe "new users" do
+    # should Pass isn't a very good description of what should happen in this feature
+    # you could try something like it 'should render new form' or
+    # it 'should responde with 200'
   	it "should Pass" do
   	 get "/users/new"
   	 response.status.should be(200)
@@ -17,7 +25,8 @@ describe "Users response" do
 
   describe "creating user" do
     it "should Pass" do
-  	post "/users"
+    #This test was failing because no attributes were getting passed in to create a user with.
+  	post "/users", user: @user_attributes
   	response.status.should be(302)
   	end
   end	

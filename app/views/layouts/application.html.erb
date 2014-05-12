@@ -16,13 +16,18 @@
 <%= yield %>
 
 </body>
+
+<!-- Your footer should still be inside your body tag -->
+<!-- The body tag contains all html that will be displayed to the user -->
 <footer>
 
   <%= render 'layouts/footer' %>
-    <div class="row">
-      <div class="col-md-12 col-sm-12">
+    <div class="row"> <!-- You didn't close this div -->
+      <div class="col-md-12 col-sm-12"> <!-- You didn't close this div -->
         <%flash.each do|key,value|%>
                 <div class="alert alert-<%=key%>"> <%=value%> </div>
         <%end%>
+      </div> <!-- Added div close -->
+    </div> <!-- Added div close -->
 </footer>  
 </html>
