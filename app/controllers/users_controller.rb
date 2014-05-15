@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 	def create
 	  user = User.new(user_params)
 		if user.save
+			# you should sign_in your user here when there account is created
 		  flash[:success] = "You have successfully created an Account."
 		  redirect_to user
 		else
@@ -18,7 +19,9 @@ class UsersController < ApplicationController
 	def show
       @user = User.find(params[:id])
 	end	
-	
+
+	# You should have some authorization that blocks the unintended user from accessing
+	# this method.
 	def update
   	  @user = User.find(params[:id])
   	  @user.update_attributes(user_params)

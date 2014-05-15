@@ -1,17 +1,17 @@
+<!-- Try to do styling with css as opposed to inline breaks -->
+<br> 
 <br>
 <br>
 <br>
-<br>
-<div id="profilepage">
-<h1 id="profheader">Your Speed TrApp Profile</h1>
-<div class="row">
-  <aside class="col-md-4">
-      <h3>Username: <%= @user.name %></h3>
-      <h3>Email:  <%= @user.email %></h3>
-      <h3>Member Since: <%= @user.created_at %><</h3>
-  <%= link_to "New TrApp", '/traps/new' %> <br>
-  <%= link_to "View All TrApps", '/traps/show' %> <br>
-  </aside>
-</div>
-
-
+<div id="profilepage"> <!-- You forgot to close this div -->
+  <h1 id="profheader">Your Speed TrApp Profile</h1>
+  <div class="row">
+    <aside class="col-md-4">
+        <h3>Username: <%= @user.name %></h3>
+        <h3>Email:  <%= @user.email %></h3>
+        <h3>Member Since: <%= @user.created_at %><</h3>
+    <%= link_to "New TrApp", '/traps/new' %> <br>
+    <%= link_to "View All TrApps", '/traps/show' %> <br>
+    </aside>
+  </div>
+</div> <!-- Added missing div close -->

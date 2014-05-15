@@ -1,8 +1,11 @@
 
 
 <button class="submitter">Create New Trap</button>
-
-  <head>
+  <!-- Everything you put here under head should go in your layout.html.erb file -->
+  <!-- Every page besides layout is essentially a partial that is being rendered in layout-->
+  <!-- If you add a head tag on an individual page you end up having multiple head tags (the one from layout and one from this page) -->
+  <!-- This can cause problems -->
+  <head> 
     <title>Geolocation</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
@@ -19,9 +22,13 @@
     
     <script>
 
+// In order to clean things up this javascript can be moved to the application.js file
+// or a traps.js file
 
 var map;
 
+// A good deal of this javascript is repeated here and in your show page
+// Moving this to a js file will allow you to clean-up/get rid of repeating code
 function initialize() {
   var mapOptions = {
     zoom: 14,
@@ -90,6 +97,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   
+  <!-- Like the head tag you should not have a body tag here -->
    <body> 
     <div id="map-canvas"></div>
    </body> 

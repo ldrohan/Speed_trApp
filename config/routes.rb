@@ -1,14 +1,20 @@
 SpeedTrapp::Application.routes.draw do
   resources :sessions
-  root 'users#new'
+  # I probably wouldn't keep 'users#new' as your root path
+  # When a user goes to your homepage they will be asked to sign in even if they are 
+  # signed in. This creates a confusing flow for the user
+  root 'users#new' 
 
+  # As all of your routes are restful you can just use resources to create these
+  # If you do not want to create all of the restful routes for a resource you can use only
+  # example: resources :users, only: [:new, :create, :show] 
   get'/users/new', to: 'users#new', as: 'users_new'
   post '/users', to: 'users#create', as: 'users'
   get '/users/:id', to: 'users#show', as: 'user'
   
   get '/traps/new', to: 'traps#new', as: 'trap'
   post '/traps', to: 'traps#create' 
-  get '/traps/show', to: 'traps#show' 
+  get '/traps/show', to: 'traps#show'
 
   delete '/signout', to: 'sessions#destroy'
   get '/signin', to: 'sessions#new'
